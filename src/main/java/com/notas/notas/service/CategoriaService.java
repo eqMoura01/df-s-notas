@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.notas.notas.entities.Categoria;
 import com.notas.notas.repository.CategoriaRepository;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
