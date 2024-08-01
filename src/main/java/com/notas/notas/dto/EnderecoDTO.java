@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClienteDTO {
+public class EnderecoDTO {
     private Long id;
-    private String nome;
-    private String email;
-    private EnderecoDTO enderecoDTO;
+    private String cep;
+    private String numero;
+    private String complemento;
 }
