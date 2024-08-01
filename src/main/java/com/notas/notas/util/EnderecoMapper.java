@@ -4,6 +4,7 @@ import com.notas.notas.dto.EnderecoDTO;
 import com.notas.notas.entities.Endereco;
 
 public abstract class EnderecoMapper {
+    
     static Endereco toEndereco(EnderecoDTO enderecoDTO) {
         return new Endereco(enderecoDTO.getId(), enderecoDTO.getCep(), enderecoDTO.getNumero(), enderecoDTO.getComplemento());
     }
