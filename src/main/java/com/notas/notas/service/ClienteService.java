@@ -38,7 +38,7 @@ public class ClienteService {
         
         BeanUtils.copyProperties(cliente, clienteSalvo);
 
-        return clienteRepository.save(clienteSalvo);
+        return clienteRepository.save(cliente);
     }
 
     public void delete(Long id) {
