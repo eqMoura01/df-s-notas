@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.notas.notas.entities.Nota;
-import com.notas.notas.entities.Produto;
-import com.notas.notas.repository.ClienteRepository;
 import com.notas.notas.repository.NotaRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -19,12 +17,6 @@ public class NotaService {
 
     @Autowired
     private NotaRepository notaRepository;
-
-    @Autowired
-    private ClienteService clienteService;
-
-    @Autowired
-    private ProdutoService produtoService;
 
     public Nota save(Nota nota) {
 
