@@ -1,5 +1,6 @@
 package com.notas.notas.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,12 @@ public class NotaController {
 
     @PostMapping
     public ResponseEntity<NotaDTO> save(@RequestBody NotaDTO notaDTO) {
+
+        notaDTO.setData(new Timestamp(System.currentTimeMillis()));
         return ResponseEntity.ok(NotaMapper.toNotaDTO(notaService.save(NotaMapper.toNota(notaDTO))));
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<NotaDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok(NotaMapper.toNotaDTO(notaService.findById(id)));
     }
@@ -44,9 +47,12 @@ public class NotaController {
         return ResponseEntity.ok(NotaMapper.toNotaDTO(notaService.update(NotaMapper.toNota(notaDTO))));
     }
 
-    @DeleteMapping("/id")
-    public ResponseEntity<NotaDTO> deleteById(@PathVariable Long id) {
-        return ResponseEntity.ok(NotaMapper.toNotaDTO(notaService.deleteById(id)));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+
+        notaService.deleteById(id);
+
+        return ResponseEntity.ok().build();
     }
 
 }

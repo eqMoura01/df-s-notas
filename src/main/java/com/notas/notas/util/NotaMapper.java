@@ -20,6 +20,6 @@ public class NotaMapper {
 
     public static List<NotaDTO> toNotaDTOList(List<Nota> notas) {
         return notas.stream().map(NotaMapper::toNotaDTO).collect(Collectors.toList());
-    }
+    } 
 
 }
