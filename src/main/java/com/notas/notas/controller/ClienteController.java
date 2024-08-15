@@ -1,5 +1,6 @@
 package com.notas.notas.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<ClienteDTO> save(@RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<ClienteDTO> save(@RequestBody ClienteDTO clienteDTO) throws NoSuchAlgorithmException {
 
         Cliente cliente = ClienteMapper.toCliente(clienteDTO);
         Cliente clienteCriado = clienteService.save(cliente);
@@ -53,7 +54,7 @@ public class ClienteController {
     }
 
     @PutMapping
-    public ResponseEntity<ClienteDTO> update(@RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<ClienteDTO> update(@RequestBody ClienteDTO clienteDTO) throws NoSuchAlgorithmException {
         Cliente cliente = ClienteMapper.toCliente(clienteDTO);
         return ResponseEntity.ok(ClienteMapper.toClienteDTO(clienteService.update(cliente)));
     }
